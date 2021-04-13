@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="jh_password_policy" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>wearejh</tab>
+            <label>Password Policy</label>
+            <resource>Jh_PasswordPolicy::config</resource>
+            <group id="password" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Password Settings</label>
+                <field id="enable_validation" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Validation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[Enables advanced password validation]]>
+                    </comment>
+                </field>
+                <field id="minimum_password_strength" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Password Strength</label>
+                    <source_model>Jh\PasswordPolicy\Model\Config\Source\PasswordScore</source_model>
+                    <comment>
+                        <![CDATA[
+                            <p>Specify the minimum password strength.</p>
+                            <p><b>Very Weak</b><br>
+                            Passwords are too guessable (Allows risky passwords)</p>
+                            <p><b>Weak</b><br>
+                            Passwords are very guessable (Offers protection from throttled online attacks)</p>
+                            <p><b>Medium</b><br>
+                            Passwords are somewhat guessable (Offers protection from unthrottled online attacks)</p>
+                            <p><b>Strong</b><br>
+                            Passwords are safely unguessable (Offers moderate protection from offline slow-hash scenario)</p>
+                            <p><b>Very Strong</b><br>
+                            Passwords are unguessable (Offers strong protection from offline slow-hash scenario)</p>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="enable_validation">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

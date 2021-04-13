@@ -1,0 +1,19 @@
+{
+  "name": "wearejh/m2-module-password-policy",
+  "description": "Adds validation of common passwords to the customer account Web API",
+  "type": "magento2-module",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "bjeavons/zxcvbn-php": "1.2.*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Jh\\PasswordPolicy\\": ""
+    }
+  }
+}

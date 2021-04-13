@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <jh_password_policy>
+            <password>
+                <enable_validation>0</enable_validation>
+                <minimum_password_strength>3</minimum_password_strength>
+            </password>
+        </jh_password_policy>
+    </default>
+</config>
