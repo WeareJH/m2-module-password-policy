@@ -7,7 +7,6 @@ namespace Jh\PasswordPolicy\Model;
 use Jh\PasswordPolicy\Api\Data\PasswordInterface;
 use Jh\PasswordPolicy\Api\PasswordRepositoryInterface;
 use Jh\PasswordPolicy\Model\PasswordFactory;
-use Magento\Framework\Api\DataObjectHelper;
 use ZxcvbnPhp\Zxcvbn as StrengthEstimator;
 
 class PasswordRepository implements PasswordRepositoryInterface
@@ -22,31 +21,16 @@ class PasswordRepository implements PasswordRepositoryInterface
      */
     private $passwordFactory;
 
-    /**
-     * @var DataObjectHelper
-     */
-    private $dataObjectHelper;
-
     public function __construct(
         StrengthEstimator $strengthEstimator,
-        PasswordFactory $passwordFactory,
-        DataObjectHelper $dataObjectHelper
+        PasswordFactory $passwordFactory
     ) {
         $this->strengthEstimator = $strengthEstimator;
         $this->passwordFactory   = $passwordFactory;
-        $this->dataObjectHelper  = $dataObjectHelper;
     }
 
     public function get(string $password): PasswordInterface
     {
-        $passwordStrengthDataObject = $this->passwordFactory->create();
-
-        $this->dataObjectHelper->populateWithArray(
-            $passwordStrengthDataObject,
-            $this->strengthEstimator->passwordStrength($password),
-            PasswordInterface::class
-        );
-
-        return $passwordStrengthDataObject;
+        return $this->passwordFactory->create(['data' => $this->strengthEstimator->passwordStrength($password)]);
     }
 }

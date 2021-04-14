@@ -15,11 +15,11 @@ class Password extends AbstractExtensibleObject implements PasswordInterface
         return $this->_get(self::PASSWORD);
     }
 
-    public function getGuesses(): int
+    public function getGuesses(): ?int
     {
         return (int) $this->_get(self::GUESSES);
     }
-
+    
     public function getSequence(): ?array
     {
         return $this->_get(self::SEQUENCE);
@@ -44,7 +44,7 @@ class Password extends AbstractExtensibleObject implements PasswordInterface
     {
         return $this->_get(self::FEEDBACK);
     }
-
+    
     public function getCalculationTime(): ?float
     {
         return $this->_get(self::CALCULATION_TIME);
