@@ -19,27 +19,27 @@ interface PasswordInterface extends ExtensibleDataInterface
     public const CALCULATION_TIME = 'calc_time';
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPassword(): ?string;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getGuesses(): int;
+    public function getGuesses(): ?int;
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getSequence(): ?array;
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getCrackTimesSeconds(): ?array;
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getCrackTimesDisplay(): ?array;
 
@@ -50,12 +50,12 @@ interface PasswordInterface extends ExtensibleDataInterface
     public function getScore(): int;
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getFeedback(): ?array;
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getCalculationTime(): ?float;
 
