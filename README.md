@@ -6,6 +6,13 @@ password strength estimator](https://github.com/bjeavons/zxcvbn-php).
 
 ## Installation
 
+Add the module repository to `composer.json`
+```
+ "repositories": [
+    {"type": "vcs", "url": "git@github.com:WeareJH/m2-module-password-policy.git"}
+ ]
+```
+then run the following commands
 ```sh
 $ composer require wearejh/m2-module-password-policy
 $ php bin/magento setup:upgrade
@@ -26,7 +33,7 @@ Scores are integers from 0 to 4
 Navigate to the following admin path to manage settings
 
 ```
-Stores > Configuration > Jh > Password Policy
+Stores > Configuration > JH Modules > Password Policy
 ```
 
 ![](docs/img/admin.png)
